@@ -1,0 +1,22 @@
+let SignInData = datatable(
+    User:string,
+    IPAddress:string,
+    Application:string,
+    Status:string
+)
+[
+    "admin@contoso.com", "185.220.101.45", "Microsoft 365", "Failure",
+    "admin@contoso.com", "185.220.101.45", "Microsoft 365", "Failure",
+    "admin@contoso.com", "185.220.101.45", "Microsoft 365", "Failure",
+    "admin@contoso.com", "185.220.101.45", "Microsoft 365", "Failure",
+    "admin@contoso.com", "185.220.101.45", "Microsoft 365", "Failure",
+    "admin@contoso.com", "185.220.101.45", "Microsoft 365", "Success"
+];
+
+SignInData
+| summarize
+    FailedAttempts = countif(Status == "Failure"),
+    SuccessfulLogins = countif(Status == "Success")
+    by User, IPAddress, Application
+| where FailedAttempts >= 3
+    and SuccessfulLogins >= 1
