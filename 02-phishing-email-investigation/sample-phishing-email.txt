@@ -1,0 +1,16 @@
+From: Microsoft Security <security-alert@micros0ft-security.example>
+To: admin@contoso.com
+Subject: Urgent: Your account will be suspended
+
+Date: 25 August 2026
+
+Your Microsoft 365 account requires immediate verification.
+
+Your account will be suspended unless you verify your identity within
+24 hours.
+
+Verify your account:
+https://login-microsoft-security.example/verify
+
+Security Team
+Microsoft 365
